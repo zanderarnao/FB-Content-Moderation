@@ -17,18 +17,19 @@ The New Governor: Facebook’s Content Moderation
 Facebook is one of the [New
 Governors](https://harvardlawreview.org/wp-content/uploads/2018/04/1598-1670_Online.pdf);
 it employs a complicated mixture of [machine
-learning](https://www.theverge.com/2020/11/13/21562596/facebook-ai-moderation),
-[human
-bureaucrats](https://www.npr.org/2020/11/18/936282353/facebook-contract-workers-demand-safer-conditions-amid-pressure-to-return-to-off),
-and [Community Standards](https://www.facebook.com/communitystandards/)
-to moderate a large segment of the world’s communications system.
-Because of the First Amendment, the work of curtailing objectionable
-content from the online information ecosystem falls to private companies
-like Facebook.
+learning](https://www.theverge.com/2020/11/13/21562596/facebook-ai-moderation)
+and [human
+bureaucrats](https://www.npr.org/2020/11/18/936282353/facebook-contract-workers-demand-safer-conditions-amid-pressure-to-return-to-off)
+to moderate a large segment of the world’s communications system
+according to their [Community
+Standards](https://www.facebook.com/communitystandards/). For better or
+worse, because of the First Amendment, the work of curtailing
+objectionable content from our online information ecosystem falls to
+private corporations like Facebook.
 
-Recently, this governance (or lack thereof) has become a lightning rod
-for political criticism. Critics from all sides of the political
-spectrum excoriate the Facebook for its role in spreading
+Recently, this governance has become a lightning rod for political
+criticism. Critics from all sides of the political spectrum have
+excoriated Facebook for its role in spreading
 [disinformation](https://www.npr.org/2021/03/06/974394783/far-right-misinformation-is-thriving-on-facebook-a-new-study-shows-just-how-much)
 and [hate speech](https://news.un.org/en/story/2020/12/1080832) and
 [“censoring”
@@ -39,29 +40,28 @@ amendments to [Section
 of the Communications Decency Act, which confers broad immunity to
 technology companies from legal liability for user-generated content.
 
-Major changes to Section 230 would significantly change the Internet as
-we know it, so policymakers must go deeper than simple media narratives
-and understand the complex realities behind Facebook’s content
-moderation. Luckily, as part of its quarterly [Transparency
+Major revisions to Section 230 would significantly change the Internet
+as we know it, so policymakers must study the complex realities behind
+the media narratives surrounding Facebook’s content moderation before
+taking action. Luckily, as part of its quarterly [Transparency
 Report](https://transparency.fb.com/data/), the company has regularly
 published
 [data](https://transparency.fb.com/data/community-standards-enforcement)
 about its content moderation since 2017. Below I explain these data and
-then outline a set of questions which motivate two hypotheses.
+then outline a set of questions explored here.
 
 ### Explanation of Facebook Transparency Data
 
 The data provide information about content moderation decisions made by
-Facebook and Instagram according to their shared Community Standards.
-Specifically, they contain metrics like number of overall “actions”
-(i.e. deletions), proactive actions (i.e. deletions without human
-flagging), appeals, and restores with and without appeal. These metrics
-are provided broken down by the 12 categories of content (enumerated
-[here](https://transparency.fb.com/policies/)) prohibited according to
-the Community Standards. I tidied the data and broke it up into two data
-frames containing the same variables: one for Facebook and one for
-Instagram. Here I focus solely on data for Facebook’s content moderation
-due to the poor quality of published Instagram data
+Facebook and Instagram. Specifically, they contain metrics like number
+of overall “actions” (i.e. deletions), proactive actions (i.e. deletions
+without human flagging), appeals, and restores with and without appeal.
+These metrics are provided broken down by the 12 categories of content
+(enumerated [here](https://transparency.fb.com/policies/)) prohibited
+according to the Community Standards. I tidied the data and broke it up
+into two data frames containing the same variables: one for Facebook and
+one for Instagram. Here I focus solely on data for Facebook’s content
+moderation due to the poor quality of published Instagram’s data.
 
 ### Questions to Explore
 
@@ -204,7 +204,7 @@ while the public focuses on issues like disinformation and hate speech,
 Facebook’s content moderation is not geared toward nor effective at
 resolving these issues. In spite of a recent increase in the number of
 actions against Hate Speech, moderation the vast majority of the time
-removes the less controversial content like spam and fake accounts.
+removes less controversial content like spam and fake accounts.
 
 And when the machine learning elements of content moderation do focus on
 more objectionable content, they are often ineffective. From hate speech
@@ -219,96 +219,95 @@ address the blight of objectionable content.
 # Session Info
 
     ## ─ Session info ───────────────────────────────────────────────────────────────
-    ##  setting  value                               
-    ##  version  R version 4.0.1 (2020-06-06)        
-    ##  os       Red Hat Enterprise Linux 8.4 (Ootpa)
-    ##  system   x86_64, linux-gnu                   
-    ##  ui       X11                                 
-    ##  language (EN)                                
-    ##  collate  en_US.UTF-8                         
-    ##  ctype    en_US.UTF-8                         
-    ##  tz       America/Chicago                     
-    ##  date     2021-07-15                          
+    ##  setting  value                       
+    ##  version  R version 4.1.0 (2021-05-18)
+    ##  os       macOS Big Sur 10.16         
+    ##  system   x86_64, darwin17.0          
+    ##  ui       X11                         
+    ##  language (EN)                        
+    ##  collate  en_US.UTF-8                 
+    ##  ctype    en_US.UTF-8                 
+    ##  tz       America/New_York            
+    ##  date     2021-08-22                  
     ## 
     ## ─ Packages ───────────────────────────────────────────────────────────────────
     ##  package      * version date       lib source        
-    ##  assertthat     0.2.1   2019-03-21 [2] CRAN (R 4.0.1)
-    ##  backports      1.2.1   2020-12-09 [2] CRAN (R 4.0.1)
-    ##  broom          0.7.5   2021-02-19 [2] CRAN (R 4.0.1)
-    ##  cachem         1.0.4   2021-02-13 [2] CRAN (R 4.0.1)
-    ##  callr          3.6.0   2021-03-28 [2] CRAN (R 4.0.1)
-    ##  cellranger     1.1.0   2016-07-27 [2] CRAN (R 4.0.1)
-    ##  cli            2.3.1   2021-02-23 [2] CRAN (R 4.0.1)
-    ##  colorspace     2.0-0   2020-11-11 [2] CRAN (R 4.0.1)
-    ##  crayon         1.4.1   2021-02-08 [2] CRAN (R 4.0.1)
-    ##  DBI            1.1.1   2021-01-15 [2] CRAN (R 4.0.1)
-    ##  dbplyr         2.1.0   2021-02-03 [2] CRAN (R 4.0.1)
-    ##  desc           1.3.0   2021-03-05 [2] CRAN (R 4.0.1)
-    ##  devtools       2.3.2   2020-09-18 [2] CRAN (R 4.0.1)
-    ##  digest         0.6.27  2020-10-24 [2] CRAN (R 4.0.1)
-    ##  dplyr        * 1.0.5   2021-03-05 [2] CRAN (R 4.0.1)
-    ##  ellipsis       0.3.1   2020-05-15 [2] CRAN (R 4.0.1)
-    ##  evaluate       0.14    2019-05-28 [2] CRAN (R 4.0.1)
-    ##  fansi          0.4.2   2021-01-15 [2] CRAN (R 4.0.1)
-    ##  farver         2.1.0   2021-02-28 [2] CRAN (R 4.0.1)
-    ##  fastmap        1.1.0   2021-01-25 [2] CRAN (R 4.0.1)
-    ##  forcats      * 0.5.1   2021-01-27 [2] CRAN (R 4.0.1)
-    ##  fs             1.5.0   2020-07-31 [2] CRAN (R 4.0.1)
-    ##  generics       0.1.0   2020-10-31 [2] CRAN (R 4.0.1)
-    ##  ggplot2      * 3.3.3   2020-12-30 [2] CRAN (R 4.0.1)
-    ##  glue           1.4.2   2020-08-27 [2] CRAN (R 4.0.1)
-    ##  gtable         0.3.0   2019-03-25 [2] CRAN (R 4.0.1)
-    ##  haven          2.3.1   2020-06-01 [2] CRAN (R 4.0.1)
-    ##  here         * 1.0.1   2020-12-13 [2] CRAN (R 4.0.1)
-    ##  highr          0.8     2019-03-20 [2] CRAN (R 4.0.1)
-    ##  hms            1.0.0   2021-01-13 [2] CRAN (R 4.0.1)
-    ##  htmltools      0.5.1.1 2021-01-22 [2] CRAN (R 4.0.1)
-    ##  httr           1.4.2   2020-07-20 [2] CRAN (R 4.0.1)
-    ##  jsonlite       1.7.2   2020-12-09 [2] CRAN (R 4.0.1)
-    ##  knitr        * 1.31    2021-01-27 [2] CRAN (R 4.0.1)
-    ##  labeling       0.4.2   2020-10-20 [2] CRAN (R 4.0.1)
-    ##  lifecycle      1.0.0   2021-02-15 [2] CRAN (R 4.0.1)
-    ##  lubridate      1.7.10  2021-02-26 [2] CRAN (R 4.0.1)
-    ##  magrittr       2.0.1   2020-11-17 [2] CRAN (R 4.0.1)
-    ##  memoise        2.0.0   2021-01-26 [2] CRAN (R 4.0.1)
-    ##  modelr         0.1.8   2020-05-19 [2] CRAN (R 4.0.1)
-    ##  munsell        0.5.0   2018-06-12 [2] CRAN (R 4.0.1)
-    ##  pillar         1.5.1   2021-03-05 [2] CRAN (R 4.0.1)
-    ##  pkgbuild       1.2.0   2020-12-15 [2] CRAN (R 4.0.1)
-    ##  pkgconfig      2.0.3   2019-09-22 [2] CRAN (R 4.0.1)
-    ##  pkgload        1.2.0   2021-02-23 [2] CRAN (R 4.0.1)
-    ##  prettyunits    1.1.1   2020-01-24 [2] CRAN (R 4.0.1)
-    ##  processx       3.5.0   2021-03-23 [2] CRAN (R 4.0.1)
-    ##  ps             1.6.0   2021-02-28 [2] CRAN (R 4.0.1)
-    ##  purrr        * 0.3.4   2020-04-17 [2] CRAN (R 4.0.1)
-    ##  R6             2.5.0   2020-10-28 [2] CRAN (R 4.0.1)
-    ##  RColorBrewer * 1.1-2   2014-12-07 [2] CRAN (R 4.0.1)
-    ##  Rcpp           1.0.6   2021-01-15 [2] CRAN (R 4.0.1)
-    ##  readr        * 1.4.0   2020-10-05 [2] CRAN (R 4.0.1)
-    ##  readxl         1.3.1   2019-03-13 [2] CRAN (R 4.0.1)
-    ##  remotes        2.3.0   2021-04-01 [2] CRAN (R 4.0.1)
-    ##  reprex         2.0.0   2021-04-02 [2] CRAN (R 4.0.1)
-    ##  rlang          0.4.10  2020-12-30 [2] CRAN (R 4.0.1)
-    ##  rmarkdown      2.7     2021-02-19 [2] CRAN (R 4.0.1)
-    ##  rprojroot      2.0.2   2020-11-15 [2] CRAN (R 4.0.1)
-    ##  rstudioapi     0.13    2020-11-12 [2] CRAN (R 4.0.1)
-    ##  rvest          1.0.0   2021-03-09 [2] CRAN (R 4.0.1)
-    ##  scales         1.1.1   2020-05-11 [2] CRAN (R 4.0.1)
-    ##  sessioninfo    1.1.1   2018-11-05 [2] CRAN (R 4.0.1)
-    ##  stringi        1.5.3   2020-09-09 [2] CRAN (R 4.0.1)
-    ##  stringr      * 1.4.0   2019-02-10 [1] CRAN (R 4.0.1)
-    ##  testthat       3.0.2   2021-02-14 [2] CRAN (R 4.0.1)
-    ##  tibble       * 3.1.0   2021-02-25 [2] CRAN (R 4.0.1)
-    ##  tidyr        * 1.1.3   2021-03-03 [2] CRAN (R 4.0.1)
-    ##  tidyselect     1.1.0   2020-05-11 [2] CRAN (R 4.0.1)
-    ##  tidyverse    * 1.3.0   2019-11-21 [2] CRAN (R 4.0.1)
-    ##  usethis        2.0.1   2021-02-10 [2] CRAN (R 4.0.1)
-    ##  utf8           1.2.1   2021-03-12 [2] CRAN (R 4.0.1)
-    ##  vctrs          0.3.7   2021-03-29 [2] CRAN (R 4.0.1)
-    ##  withr          2.4.1   2021-01-26 [2] CRAN (R 4.0.1)
-    ##  xfun           0.22    2021-03-11 [2] CRAN (R 4.0.1)
-    ##  xml2           1.3.2   2020-04-23 [2] CRAN (R 4.0.1)
-    ##  yaml           2.2.1   2020-02-01 [2] CRAN (R 4.0.1)
+    ##  assertthat     0.2.1   2019-03-21 [1] CRAN (R 4.1.0)
+    ##  backports      1.2.1   2020-12-09 [1] CRAN (R 4.1.0)
+    ##  broom          0.7.8   2021-06-24 [1] CRAN (R 4.1.0)
+    ##  cachem         1.0.5   2021-05-15 [1] CRAN (R 4.1.0)
+    ##  callr          3.7.0   2021-04-20 [1] CRAN (R 4.1.0)
+    ##  cellranger     1.1.0   2016-07-27 [1] CRAN (R 4.1.0)
+    ##  cli            3.0.0   2021-06-30 [1] CRAN (R 4.1.0)
+    ##  colorspace     2.0-2   2021-06-24 [1] CRAN (R 4.1.0)
+    ##  crayon         1.4.1   2021-02-08 [1] CRAN (R 4.1.0)
+    ##  DBI            1.1.1   2021-01-15 [1] CRAN (R 4.1.0)
+    ##  dbplyr         2.1.1   2021-04-06 [1] CRAN (R 4.1.0)
+    ##  desc           1.3.0   2021-03-05 [1] CRAN (R 4.1.0)
+    ##  devtools       2.4.2   2021-06-07 [1] CRAN (R 4.1.0)
+    ##  digest         0.6.27  2020-10-24 [1] CRAN (R 4.1.0)
+    ##  dplyr        * 1.0.7   2021-06-18 [1] CRAN (R 4.1.0)
+    ##  ellipsis       0.3.2   2021-04-29 [1] CRAN (R 4.1.0)
+    ##  evaluate       0.14    2019-05-28 [1] CRAN (R 4.1.0)
+    ##  fansi          0.5.0   2021-05-25 [1] CRAN (R 4.1.0)
+    ##  farver         2.1.0   2021-02-28 [1] CRAN (R 4.1.0)
+    ##  fastmap        1.1.0   2021-01-25 [1] CRAN (R 4.1.0)
+    ##  forcats      * 0.5.1   2021-01-27 [1] CRAN (R 4.1.0)
+    ##  fs             1.5.0   2020-07-31 [1] CRAN (R 4.1.0)
+    ##  generics       0.1.0   2020-10-31 [1] CRAN (R 4.1.0)
+    ##  ggplot2      * 3.3.5   2021-06-25 [1] CRAN (R 4.1.0)
+    ##  glue           1.4.2   2020-08-27 [1] CRAN (R 4.1.0)
+    ##  gtable         0.3.0   2019-03-25 [1] CRAN (R 4.1.0)
+    ##  haven          2.4.1   2021-04-23 [1] CRAN (R 4.1.0)
+    ##  here         * 1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
+    ##  highr          0.9     2021-04-16 [1] CRAN (R 4.1.0)
+    ##  hms            1.1.0   2021-05-17 [1] CRAN (R 4.1.0)
+    ##  htmltools      0.5.1.1 2021-01-22 [1] CRAN (R 4.1.0)
+    ##  httr           1.4.2   2020-07-20 [1] CRAN (R 4.1.0)
+    ##  jsonlite       1.7.2   2020-12-09 [1] CRAN (R 4.1.0)
+    ##  knitr        * 1.33    2021-04-24 [1] CRAN (R 4.1.0)
+    ##  labeling       0.4.2   2020-10-20 [1] CRAN (R 4.1.0)
+    ##  lifecycle      1.0.0   2021-02-15 [1] CRAN (R 4.1.0)
+    ##  lubridate      1.7.10  2021-02-26 [1] CRAN (R 4.1.0)
+    ##  magrittr       2.0.1   2020-11-17 [1] CRAN (R 4.1.0)
+    ##  memoise        2.0.0   2021-01-26 [1] CRAN (R 4.1.0)
+    ##  modelr         0.1.8   2020-05-19 [1] CRAN (R 4.1.0)
+    ##  munsell        0.5.0   2018-06-12 [1] CRAN (R 4.1.0)
+    ##  pillar         1.6.1   2021-05-16 [1] CRAN (R 4.1.0)
+    ##  pkgbuild       1.2.0   2020-12-15 [1] CRAN (R 4.1.0)
+    ##  pkgconfig      2.0.3   2019-09-22 [1] CRAN (R 4.1.0)
+    ##  pkgload        1.2.1   2021-04-06 [1] CRAN (R 4.1.0)
+    ##  prettyunits    1.1.1   2020-01-24 [1] CRAN (R 4.1.0)
+    ##  processx       3.5.2   2021-04-30 [1] CRAN (R 4.1.0)
+    ##  ps             1.6.0   2021-02-28 [1] CRAN (R 4.1.0)
+    ##  purrr        * 0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
+    ##  R6             2.5.0   2020-10-28 [1] CRAN (R 4.1.0)
+    ##  RColorBrewer * 1.1-2   2014-12-07 [1] CRAN (R 4.1.0)
+    ##  Rcpp           1.0.7   2021-07-07 [1] CRAN (R 4.1.0)
+    ##  readr        * 1.4.0   2020-10-05 [1] CRAN (R 4.1.0)
+    ##  readxl         1.3.1   2019-03-13 [1] CRAN (R 4.1.0)
+    ##  remotes        2.4.0   2021-06-02 [1] CRAN (R 4.1.0)
+    ##  reprex         2.0.0   2021-04-02 [1] CRAN (R 4.1.0)
+    ##  rlang          0.4.11  2021-04-30 [1] CRAN (R 4.1.0)
+    ##  rmarkdown      2.9     2021-06-15 [1] CRAN (R 4.1.0)
+    ##  rprojroot      2.0.2   2020-11-15 [1] CRAN (R 4.1.0)
+    ##  rstudioapi     0.13    2020-11-12 [1] CRAN (R 4.1.0)
+    ##  rvest          1.0.1   2021-07-26 [1] CRAN (R 4.1.0)
+    ##  scales         1.1.1   2020-05-11 [1] CRAN (R 4.1.0)
+    ##  sessioninfo    1.1.1   2018-11-05 [1] CRAN (R 4.1.0)
+    ##  stringi        1.6.2   2021-05-17 [1] CRAN (R 4.1.0)
+    ##  stringr      * 1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
+    ##  testthat       3.0.4   2021-07-01 [1] CRAN (R 4.1.0)
+    ##  tibble       * 3.1.2   2021-05-16 [1] CRAN (R 4.1.0)
+    ##  tidyr        * 1.1.3   2021-03-03 [1] CRAN (R 4.1.0)
+    ##  tidyselect     1.1.1   2021-04-30 [1] CRAN (R 4.1.0)
+    ##  tidyverse    * 1.3.1   2021-04-15 [1] CRAN (R 4.1.0)
+    ##  usethis        2.0.1   2021-02-10 [1] CRAN (R 4.1.0)
+    ##  utf8           1.2.1   2021-03-12 [1] CRAN (R 4.1.0)
+    ##  vctrs          0.3.8   2021-04-29 [1] CRAN (R 4.1.0)
+    ##  withr          2.4.2   2021-04-18 [1] CRAN (R 4.1.0)
+    ##  xfun           0.24    2021-06-15 [1] CRAN (R 4.1.0)
+    ##  xml2           1.3.2   2020-04-23 [1] CRAN (R 4.1.0)
+    ##  yaml           2.2.1   2020-02-01 [1] CRAN (R 4.1.0)
     ## 
-    ## [1] /home/arnaoz/R/x86_64-pc-linux-gnu-library/4.0
-    ## [2] /opt/R/4.0.1/lib/R/library
+    ## [1] /Library/Frameworks/R.framework/Versions/4.1/Resources/library
