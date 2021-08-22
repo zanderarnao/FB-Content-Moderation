@@ -1,0 +1,136 @@
+year,quarter,policy_area,n_actions,n_appeals,n_restore_appl,n_restore_no_appl,proactive_rate
+2017,4,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2018,1,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2018,2,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2018,3,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2018,4,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2019,1,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2019,2,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2019,3,Adult Nudity & Sexual Activity,NA,NA,NA,NA,NA
+2019,4,Adult Nudity & Sexual Activity,6300000,NA,NA,NA,0.929
+2020,1,Adult Nudity & Sexual Activity,8100000,509100,98200,10100,0.937
+2020,2,Adult Nudity & Sexual Activity,12400000,0,70,3200,0.96
+2020,3,Adult Nudity & Sexual Activity,13100000,0,30,3300,0.9329999999999999
+2020,4,Adult Nudity & Sexual Activity,11500000,0,20,141100,0.9640000000000001
+2021,1,Adult Nudity & Sexual Activity,10400000,0,10,264300,0.963
+2017,4,Bullying & Harassment,NA,NA,NA,NA,NA
+2018,1,Bullying & Harassment,NA,NA,NA,NA,NA
+2018,2,Bullying & Harassment,NA,NA,NA,NA,NA
+2018,3,Bullying & Harassment,NA,NA,NA,NA,NA
+2018,4,Bullying & Harassment,NA,NA,NA,NA,NA
+2019,1,Bullying & Harassment,NA,NA,NA,NA,NA
+2019,2,Bullying & Harassment,NA,NA,NA,NA,NA
+2019,3,Bullying & Harassment,NA,NA,NA,NA,NA
+2019,4,Bullying & Harassment,1500000,NA,NA,NA,0.36200000000000004
+2020,1,Bullying & Harassment,1500000,87500,20900,2700,0.35
+2020,2,Bullying & Harassment,2300000,0,10,12700,0.376
+2020,3,Bullying & Harassment,2600000,0,0,183100,0.545
+2020,4,Bullying & Harassment,5000000,0,0,43000,0.799
+2021,1,Bullying & Harassment,5500000,0,0,52600,0.7859999999999999
+2017,4,Child Nudity & Sexual Exploitation,NA,NA,NA,NA,NA
+2018,1,Child Nudity & Sexual Exploitation,NA,NA,NA,NA,NA
+2018,2,Child Nudity & Sexual Exploitation,NA,NA,NA,NA,NA
+2018,3,Child Nudity & Sexual Exploitation,NA,NA,NA,NA,NA
+2018,4,Child Nudity & Sexual Exploitation,NA,NA,NA,NA,NA
+2019,1,Child Nudity & Sexual Exploitation,NA,NA,NA,NA,NA
+2019,2,Child Nudity & Sexual Exploitation,526200,NA,NA,NA,0.924
+2019,3,Child Nudity & Sexual Exploitation,755800,NA,NA,NA,0.946
+2019,4,Child Nudity & Sexual Exploitation,686400,NA,NA,NA,0.9670000000000001
+2020,1,Child Nudity & Sexual Exploitation,1000000,53400,16200,200,0.977
+2020,2,Child Nudity & Sexual Exploitation,481400,0,0,30,0.958
+2020,3,Child Nudity & Sexual Exploitation,1000000,0,10,700,0.9670000000000001
+2020,4,Child Nudity & Sexual Exploitation,809300,0,0,2900,0.9790000000000001
+2021,1,Child Nudity & Sexual Exploitation,812400,0,0,3500,0.981
+2019,1,Dangerous Orgs: Organized Hate,NA,NA,NA,NA,NA
+2019,2,Dangerous Orgs: Organized Hate,NA,NA,NA,NA,NA
+2019,3,Dangerous Orgs: Organized Hate,NA,NA,NA,NA,NA
+2019,4,Dangerous Orgs: Organized Hate,140200,NA,NA,NA,0.563
+2020,1,Dangerous Orgs: Organized Hate,175400,4000,500,300,0.6829999999999999
+2020,2,Dangerous Orgs: Organized Hate,266000,0,0,900,0.738
+2020,3,Dangerous Orgs: Organized Hate,224800,0,0,1000,0.767
+2020,4,Dangerous Orgs: Organized Hate,308100,0,0,1800,0.6759999999999999
+2021,1,Dangerous Orgs: Organized Hate,324500,0,0,6500,0.773
+2017,4,Dangerous Orgs: Terrorism,NA,NA,NA,NA,NA
+2018,1,Dangerous Orgs: Terrorism,NA,NA,NA,NA,NA
+2018,2,Dangerous Orgs: Terrorism,NA,NA,NA,NA,NA
+2018,3,Dangerous Orgs: Terrorism,NA,NA,NA,NA,NA
+2018,4,Dangerous Orgs: Terrorism,NA,NA,NA,NA,NA
+2019,1,Dangerous Orgs: Terrorism,NA,NA,NA,NA,NA
+2019,2,Dangerous Orgs: Terrorism,107200,NA,NA,NA,0.932
+2019,3,Dangerous Orgs: Terrorism,134700,NA,NA,NA,0.912
+2019,4,Dangerous Orgs: Terrorism,85500,NA,NA,NA,0.91
+2020,1,Dangerous Orgs: Terrorism,440700,8400,500,200,0.848
+2020,2,Dangerous Orgs: Terrorism,388800,0,0,90,0.9840000000000001
+2020,3,Dangerous Orgs: Terrorism,183200,0,0,100,0.992
+2020,4,Dangerous Orgs: Terrorism,345600,0,0,10,0.98
+2021,1,Dangerous Orgs: Terrorism,429000,0,0,60,0.996
+2017,4,Hate Speech,NA,NA,NA,NA,NA
+2018,1,Hate Speech,NA,NA,NA,NA,NA
+2018,2,Hate Speech,NA,NA,NA,NA,NA
+2018,3,Hate Speech,NA,NA,NA,NA,NA
+2018,4,Hate Speech,NA,NA,NA,NA,NA
+2019,1,Hate Speech,NA,NA,NA,NA,NA
+2019,2,Hate Speech,NA,NA,NA,NA,NA
+2019,3,Hate Speech,NA,NA,NA,NA,NA
+2019,4,Hate Speech,645300,NA,NA,NA,0.441
+2020,1,Hate Speech,577600,42800,8600,1600,0.425
+2020,2,Hate Speech,3200000,0,20,22700,0.8490000000000001
+2020,3,Hate Speech,6500000,0,0,32900,0.948
+2020,4,Hate Speech,6600000,0,0,35700,0.951
+2021,1,Hate Speech,6300000,0,0,43700,0.934
+2017,4,Regulated Goods: Drugs,NA,NA,NA,NA,NA
+2018,1,Regulated Goods: Drugs,NA,NA,NA,NA,NA
+2018,2,Regulated Goods: Drugs,NA,NA,NA,NA,NA
+2018,3,Regulated Goods: Drugs,NA,NA,NA,NA,NA
+2018,4,Regulated Goods: Drugs,NA,NA,NA,NA,NA
+2019,1,Regulated Goods: Drugs,NA,NA,NA,NA,NA
+2019,2,Regulated Goods: Drugs,1500000,NA,NA,NA,0.955
+2019,3,Regulated Goods: Drugs,1500000,NA,NA,NA,0.9520000000000001
+2019,4,Regulated Goods: Drugs,1300000,NA,NA,NA,0.946
+2020,1,Regulated Goods: Drugs,1300000,95100,29800,2400,0.945
+2020,2,Regulated Goods: Drugs,1400000,0,14000,22600,0.945
+2020,3,Regulated Goods: Drugs,1200000,0,10,35700,0.93
+2020,4,Regulated Goods: Drugs,1400000,0,0,62100,0.956
+2021,1,Regulated Goods: Drugs,1000000,0,0,28500,0.914
+2017,4,Regulated Goods: Firearms,NA,NA,NA,NA,NA
+2018,1,Regulated Goods: Firearms,NA,NA,NA,NA,NA
+2018,2,Regulated Goods: Firearms,NA,NA,NA,NA,NA
+2018,3,Regulated Goods: Firearms,NA,NA,NA,NA,NA
+2018,4,Regulated Goods: Firearms,NA,NA,NA,NA,NA
+2019,1,Regulated Goods: Firearms,NA,NA,NA,NA,NA
+2019,2,Regulated Goods: Firearms,36900,NA,NA,NA,0.768
+2019,3,Regulated Goods: Firearms,58600,NA,NA,NA,0.91
+2019,4,Regulated Goods: Firearms,50400,NA,NA,NA,0.8340000000000001
+2020,1,Regulated Goods: Firearms,54300,4300,400,40,0.907
+2020,2,Regulated Goods: Firearms,50700,0,200,600,0.92
+2020,3,Regulated Goods: Firearms,36500,0,0,200,0.87
+2020,4,Regulated Goods: Firearms,70200,0,0,800,0.893
+2021,1,Regulated Goods: Firearms,90400,0,0,1400,0.897
+2017,4,Suicide and Self-Injury,NA,NA,NA,NA,NA
+2018,1,Suicide and Self-Injury,NA,NA,NA,NA,NA
+2018,2,Suicide and Self-Injury,NA,NA,NA,NA,NA
+2018,3,Suicide and Self-Injury,NA,NA,NA,NA,NA
+2018,4,Suicide and Self-Injury,NA,NA,NA,NA,NA
+2019,1,Suicide and Self-Injury,NA,NA,NA,NA,NA
+2019,2,Suicide and Self-Injury,838800,NA,NA,NA,0.775
+2019,3,Suicide and Self-Injury,845800,NA,NA,NA,0.789
+2019,4,Suicide and Self-Injury,897300,NA,NA,NA,0.8290000000000001
+2020,1,Suicide and Self-Injury,1300000,67200,4500,1300,0.895
+2020,2,Suicide and Self-Injury,304600,0,0,50,0.941
+2020,3,Suicide and Self-Injury,1300000,0,10,48000,0.9520000000000001
+2020,4,Suicide and Self-Injury,3400000,0,0,276500,0.945
+2021,1,Suicide and Self-Injury,2700000,0,0,119700,0.945
+2017,4,Violent & Graphic Content,NA,NA,NA,NA,NA
+2018,1,Violent & Graphic Content,NA,NA,NA,NA,NA
+2018,2,Violent & Graphic Content,NA,NA,NA,NA,NA
+2018,3,Violent & Graphic Content,NA,NA,NA,NA,NA
+2018,4,Violent & Graphic Content,NA,NA,NA,NA,NA
+2019,1,Violent & Graphic Content,NA,NA,NA,NA,NA
+2019,2,Violent & Graphic Content,NA,NA,NA,NA,NA
+2019,3,Violent & Graphic Content,NA,NA,NA,NA,NA
+2019,4,Violent & Graphic Content,2300000,NA,NA,NA,0.925
+2020,1,Violent & Graphic Content,2800000,3000,500,400,0.953
+2020,2,Violent & Graphic Content,3100000,0,0,200,0.97
+2020,3,Violent & Graphic Content,4100000,0,0,200,0.9740000000000001
+2020,4,Violent & Graphic Content,5600000,0,0,3200,0.982
+2021,1,Violent & Graphic Content,5500000,0,0,10700,0.9840000000000001

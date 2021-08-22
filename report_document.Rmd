@@ -1,0 +1,308 @@
+---
+title: "The New Governor: Facebook's Content Moderation"
+output: github_document
+github_document:
+    toc: true
+---
+
+
+
+```{r setup, include = FALSE}
+# load necessary libraries
+library(tidyverse)
+library(knitr)
+library(here)
+library(RColorBrewer)
+
+# set global options
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8,
+                      echo = FALSE, warning = FALSE, message = FALSE,
+                      scipen = 10000)
+
+options(dplyr.summarise.inform = FALSE)
+
+# run necessary scripts for functions 
+  source(here("Scripts/function_code.R"))
+```
+
+- [Introduction](#introduction)
+- [Response to Public Pressure](#response-to-recent-public-pressure)
+- [The Limits of Content Moderation](#the-limits-of-content-moderation)
+- [Conclusion](#conclusion)
+- [Session info](#session-info)
+
+# Introduction
+***
+### A Primer on Content Moderation
+
+Facebook is one of the [New Governors](https://harvardlawreview.org/wp-content/uploads/2018/04/1598-1670_Online.pdf); it employs a complicated mixture of [machine learning](https://www.theverge.com/2020/11/13/21562596/facebook-ai-moderation), [human bureaucrats](https://www.npr.org/2020/11/18/936282353/facebook-contract-workers-demand-safer-conditions-amid-pressure-to-return-to-off), and [Community Standards](https://www.facebook.com/communitystandards/) to moderate a large segment of the world's communications system. Because of the First Amendment, the work of curtailing objectionable content from the online information ecosystem falls to private companies like Facebook.  
+
+Recently, this governance (or lack thereof) has become a lightning rod for political criticism. Critics from all sides of the political spectrum excoriate the Facebook for its role in spreading [disinformation](https://www.npr.org/2021/03/06/974394783/far-right-misinformation-is-thriving-on-facebook-a-new-study-shows-just-how-much) and [hate speech](https://news.un.org/en/story/2020/12/1080832) and ["censoring" conservatives](https://www.npr.org/2020/11/14/934833214/conservatives-flock-to-mercer-funded-parler-claim-censorship-on-facebook-and-twi). This dissatsification has emerged most concretely in debates surrounding amendments to [Section 230](https://www.businessinsider.com/what-is-section-230-internet-law-communications-decency-act-explained-2020-5) of the Communications Decency Act, which confers broad immunity to technology companies from legal liability for user-generated content.
+
+Major changes to Section 230 would significantly change the Internet as we know it, so policymakers must go deeper than simple media narratives and understand the complex realities behind Facebook's content moderation. Luckily, as part of its quarterly [Transparency Report](https://transparency.fb.com/data/), the company has regularly published [data](https://transparency.fb.com/data/community-standards-enforcement) about its content moderation since 2017. Below I explain these data and then outline a set of questions which motivate two hypotheses.  
+
+### Explanation of Facebook Transparency Data
+
+The data provide information about content moderation decisions made by Facebook and Instagram according to their shared Community Standards. Specifically, they contain metrics like number of overall "actions" (i.e. deletions), proactive actions (i.e. deletions without human flagging), appeals, and restores with and without appeal. These metrics are provided broken down by the 12 categories of content (enumerated [here](https://transparency.fb.com/policies/)) prohibited according to the Community Standards. I tidied the data and broke it up into two data frames containing the same variables: one for Facebook and one for Instagram. Here I focus solely on data for Facebook's content moderation due to the poor quality of published Instagram data
+
+```{r print data frames, include = FALSE}
+# load Facebook data
+FB_data <- read_csv(here("data/Facebook-Content-Moderation-Data.csv"))
+
+# load Instagram data
+IG_data <- read_csv(here("data/Instagram-Content-Moderation-Data.csv"))
+
+# A quick note about both data: I have confirmed that missing values present in the Facebook  and Instagram data were there prior to my transformation of the original data. Facebook's contains a tolerable number of missing values while Instagram's has too many for use. Feel free to confirm these findings for yourself.
+
+```
+
+### Questions to Explore
+
+After an initial glimpse at the data, I have the following questions about Facebook's content moderation:
+
+*  Has Facebook's content moderation changed in response to the recent wave of public attention paid to its practices? 
+
+    + If so, what types of content has the company begun to recently address? 
+    
+  
+* What categories of prohibited content is Facebook able to moderate least and most successfully?
+
+* What implications do the answers to these questions have to policy debates surrounding Section 230 of the Commmunications Decency Act? 
+
+## Response to Recent Public Pressure 
+***
+Over the last few years, Facebook's content moderation has come under increasing scrutiny everywhere from the media to electoral politics. I hypothesize that Facebook would adapt to this increased pressure by taking a more aggressive stance against categories of content viewed as particularly objectionable by the public. I start my analysis with a big picture look at the number actions Facebook has taken against unacceptable content over the last few years:
+
+```{r total actions taken}
+# plot 1: number of actions taken over time
+
+# transform the data frame
+plot_1_data <- FB_data %>% filter(!is.na(n_actions)) %>% 
+  group_by(year, quarter) %>% 
+  summarize(sum_actions = sum(n_actions) / 1e06) %>% 
+  year_quarter_f() %>% 
+    # note: I recognize this method of making the year + quarter variables numeric is
+    # imperfect as it results in round year numbers (e.g. 2019) being empty in the plot. 
+  filter(year_quarter > 2018.6) # exclude years prior to fourth quarter of 2018
+# due to high number of NA's in "n_actions" variable
+
+# visualize the data as a line graph
+
+plot_1 <- plot_1_data %>% 
+  ggplot(aes(x = year_quarter, y = sum_actions)) + 
+  geom_line(size = 2, 
+            color = "#4267B2", 
+            show.legend = FALSE) + 
+  labs(title = "Total Number of Actions Since Late 2018",
+       x = "Year", 
+       y = "Millions of Actions", 
+       caption = "Curiously, total number of actions have declined since late 2018") +
+  scale_x_continuous(breaks = c(2019, 2020, 2021)) + 
+  theme_minimal()
+  
+
+print(plot_1)
+
+```
+
+At first, this figure surprises. Facebook has taken *fewer* actions to moderate content since late 2018? If anything, public pressure demands more investment and care in curtailing unacceptable content from the social networking giant. What explains this seeming discrepancy? Luckily, we have more information at our disposal; we break down the total number of actions by policy area (i.e. category of restricted content). 
+
+```{r total actions by policy area}
+# plot 2: number of actions taken over time by policy area
+
+# transform the data frame
+plot_2_data <- FB_data %>% filter(!is.na(n_actions)) %>% 
+  group_by(year, quarter, policy_area) %>% 
+  summarize(sum_actions = sum(n_actions) / 1e06) %>% 
+  year_quarter_f() %>% 
+  filter(year_quarter > 2018.6) # exclude years prior to fourth quarter of 2018
+
+# visualize the data as a line graph
+
+plot_2 <- plot_2_data %>% 
+  ggplot(aes(x = year_quarter, y = sum_actions, color = policy_area)) + 
+  geom_line(size = 3) + 
+  labs(title = "Number of Actions over Time by Policy Area",
+       x = "Year", 
+       y = "Millions of Actions", 
+       caption = "Spam and fake accounts stand out",
+       color = "Policy Area") +
+    # note: with more time, I would rearrange the the order of the legend in this 
+    # and following plots. Apologies for any readability issues!
+  scale_x_continuous(breaks = c(2019, 2020, 2021)) + 
+  scale_color_brewer(palette = "Set3") + 
+  theme_minimal()
+  
+
+print(plot_2)
+```
+
+The figure above makes clear that the *vast* majority of actions taken by Facebook's content moderation system are against spam content and fake accounts. All other categories pale in comparison to the point that they barely register on the graph. Changes in the amount of spam and fake content moderated will have profound effects upon the total number of actions taken. Just to drive the magnitude of these two categories of content home, I break down the number of actions in a stacked bar graph: 
+
+```{r stacked bar}
+# plot 3: bar graph of total actions stacked by policy area
+
+# transform the data frame
+plot_3_data <- FB_data %>% filter(!is.na(n_actions)) %>% 
+  group_by(year, quarter, policy_area) %>% 
+  summarize(sum_actions = sum(n_actions) / 1e06) %>% 
+  year_quarter_f2() %>% 
+  filter(year_quarter >= 2018.8) %>%  # exclude years prior to fourth quarter of 2018
+  mutate(year_quarter = factor(year_quarter))
+    #circle back to set levels
+
+# visualize the data as a stacked bar graph
+
+plot_3 <- plot_3_data %>% 
+  ggplot(aes(fill = policy_area, y = sum_actions, x = year_quarter)) + 
+  geom_bar(position = "stack", stat = "identity") + 
+  labs(title = "Number of Actions by Policy Area",
+       x = "Year.Quarter", 
+       y = "Millions of Actions", 
+       caption = "Once again, spam and fake accounts dominate",
+       fill = "Policy Area") + 
+  scale_fill_brewer(palette = "Set3") + 
+  coord_flip() + 
+  theme_minimal()
+  
+
+print(plot_3)
+```
+
+But we have yet to answer our initial question! Why are the total number of actions going down in spite of recent public attention to content moderation? It is clear from the graph above that number of actions against spam and fake accounts are decreasing, but what about the other categories? Perhaps their changes are more in line with our hypothesis of greater aggressiveness in content moderation. Let us find out. 
+
+```{r no spam or fake accounts}
+# plot 4: number of actions taken over time by policy area without spam or fake accounts
+
+# transform the data frame
+plot_4_data <- FB_data %>% 
+  filter(!is.na(n_actions), 
+         !(policy_area %in% c("Spam", "Fake Accounts"))) %>% 
+  group_by(year, quarter, policy_area) %>% 
+  summarize(sum_actions = sum(n_actions) / 1e06) %>% 
+  year_quarter_f() %>% 
+  filter(year_quarter >= 2018.8) # exclude years prior to fourth quarter of 2018
+
+# visualize as a line graph
+
+plot_4 <- plot_4_data %>% 
+  ggplot(aes(x = year_quarter, y = sum_actions, color = policy_area)) + 
+  geom_line(size = 3) + 
+  labs(title = "Number of Actions by Policy Area",
+       x = "Year", 
+       y = "Millions of Actions", 
+       caption = "Notice the increase in action against hate speech",
+       color = "Policy Area") +
+  scale_x_continuous(breaks = c(2019, 2020, 2021)) + 
+  scale_color_brewer(palette = "Set3") + 
+  theme_minimal()
+
+print(plot_4)
+```
+
+Once spam and fake accounts have been removed from the plot, it becomes clear that the overall decrease is almost entirely explained by their diminution. The other policy areas while smaller show no clear downward trajectory. Three categories stand out in this plot for their magnitude: Violent & Graphic Content, Adult Nudity & Sexual Activity, and Hate Speech. 
+
+The latter is particularly interesting as its increase during 2020 might reflect greater attention by Facebook to addressing criticisms related to hate speech on its platform. While it is possible that this increase is due to background events, the jump in number of actions is sudden enough that Facebook could have started more actively curtailing it in response to public pressure. Here we have a confirmatory indicator for our hypothesis.
+
+## The Limits of Content Moderation
+***
+Like any other computational tool, the machine learning elements of Facebook's content moderation are imperfect. It is known that machine learning algorithms struggle to understand a content's context to the same degree a typical human can. Some categories of content then simply defy easy classification for machines. Therefore, I hypothesize that categories of content which require strong reference to their context are more error prone than categories that are easier to define in a stricter sense. 
+
+I test this hypothesis by comparing the proactive rate and percent of actions appeals across each category of content. Context-dependent categories like Hate Speech and Bullying & Harassment will be less efficacious than more objectively definable categories like Spam and Child Nudity & Sexual Exploitation. That is, context-dependent categories will have lower proactive rates and higher percentages of appeal relative to more objective categories. 
+
+```{r proactive rate box plot}
+# plot 5: distribution of proactive rates compared across policy areas
+
+# transform the data frame
+
+plot_5_data <- FB_data %>% 
+  filter(!is.na(proactive_rate))
+    # we do not filter by year because of few missing values in the proactive rate
+
+# visualize as a box plot
+
+plot_5 <- plot_5_data %>% 
+  ggplot(aes(x = policy_area, y = proactive_rate, fill = policy_area)) + 
+  geom_boxplot() + 
+  labs(title = "Proactive Rate by Policy Area",
+     x = "Policy Area", 
+     y = "Proactive Rate", 
+     caption = "Proactive rates for context-dependent categories are much lower",
+     fill = "Policy Area") +
+  scale_fill_brewer(palette = "Set3") +
+  scale_y_continuous(labels = scales::percent) + 
+  coord_flip() +
+  theme_minimal()
+
+print(plot_5)
+
+# plot 6: distribution of proactive rates compared across policy areas 
+# minus context dependents
+
+plot_6_data <- plot_5_data %>% 
+  filter(!(policy_area %in% c("Bullying & Harassment", 
+                              "Hate Speech")))
+         
+# visualize as a box plot
+
+plot_6 <- plot_6_data %>% 
+  ggplot(aes(x = policy_area, y = proactive_rate, fill = policy_area)) + 
+  geom_boxplot() + 
+  labs(title = "Proactive Rate without Context Dependents",
+     x = "Policy Area", 
+     y = "Proactive Rate", 
+     caption = "For ease of comparison",
+     fill = "Policy Area") +
+  scale_fill_brewer(palette = "Set3") +
+  scale_y_continuous(labels = scales::percent) + 
+  coord_flip() +
+  theme_minimal()
+
+print(plot_6)
+
+```
+The above graph is in line with the hypothesis. The proactive rate measures the percentage of actioned content removed prior to any human flags, i.e. detected by machines without human assistance. It is thus a measure of the efficacy of machine learning algorithms for each content category. The box plots show the central tendency and distribution of this rate by policy area. One can see that the context dependent groups are both systematically lower and more variable than the more objective. 
+
+In particular, detection of Bullying & Harassment is startlingly low and Hate Speech unacceptably variable. In the box plot without these two categories, it is easy to see that every other category possesses proactive rates in excess of 90%, especially the most objective categories like Child Nudity & Sexual Exploitation and Spam which are near perfect. Machine learning algorithms are thus limited in their capacity to deal with context-dependent content, a weakness that ensures some user exposure.  
+
+If artificial intelligence is less likely to correctly flag context-dependent content, what of when it does assert a classification? Will it be prone to making disproportionate errors? I check this below by comparing the percentage of appeals across policy areas. 
+
+```{r percent appealed box plot}
+# plot 7: distribution of percent appealed across policy areas
+
+# transform the data
+plot_7_data <- FB_data %>% 
+ filter(!is.na(n_actions), !is.na(n_appeals)) %>% 
+  mutate(percent_appealed = (n_appeals / n_actions)) 
+         
+# visualize as a box plot
+plot_7 <- plot_7_data %>% 
+  ggplot(aes(x = policy_area, y = percent_appealed, fill = policy_area)) + 
+  geom_boxplot() + 
+  labs(title = "Percent of Actions Appealed by Policy Area",
+     x = "Policy Area", 
+     y = "% Appealed", 
+     caption = "Context dependent categories once again stand out",
+     fill = "Policy Area") +
+  scale_fill_brewer(palette = "Set3") +
+  scale_y_continuous(labels = scales::percent) + 
+  coord_flip() +
+  theme_minimal()
+
+print(plot_7)
+```
+
+Indeed, the hypothesis's prediction once again proves accurate. The percentage of actions against context-dependent content, particularly Hate Speech and Bullying & Harassment, is much higher and more variable than the their more objective counterparts. Interestingly, content removed for Adult Nudity & Sexual Activity also appears prone to appeal. Spam content and Child Nudity & Sexual Exploitation by comparison rarely see appeals. Once more the data exposes the errors made by machine learning algorithms when they flag context-dependent content. 
+
+# Conclusion
+***
+
+We conclude by answering my last question. It has become clear from the analysis above that there are real issues with Facebook's content moderation system as well the public's understanding of it. Firstly, while the public focuses on issues like disinformation and hate speech, Facebook's content moderation is not geared toward nor effective at resolving these issues. In spite of a recent increase in the number of actions against Hate Speech, moderation the vast majority of the time removes the less controversial content like spam and fake accounts.
+
+And when the machine learning elements of content moderation do focus on more objectionable content, they are often ineffective. From hate speech to disinformation this content is  usually only identifiable by referencing context, which is a challenging task for today's machine learning algorithms. Advocates of reform to Section 230 must have these hard realities in mind. The fundamental limits of technology make incentivizing more aggressive moderation by exposing technology companies to liabilities for user-generated content a blunt tool to address the blight of objectionable content. 
+
+# Session Info
+
+```{r session info}
+devtools::session_info()
+```
