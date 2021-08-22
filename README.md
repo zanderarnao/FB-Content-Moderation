@@ -1,36 +1,37 @@
-# hw05
+# The New Governor: Facebook's Content Moderation
 
-### For this homework assignment, you will need the following libraries: 
-libarary(tidyverse)
-library(knitr)
-library(here)
-library(RColorBrewer)
+### To replicate this project, you will need the following libraries: 
+* libarary(tidyverse)
+* library(knitr)
+* library(here)
+* library(RColorBrewer)
 
-### Overview of the assignment: 
+### Overview: 
 
-This assignment entailed me finding a data set, cleaning and tidying it, importing, and then finally analyzing and visualizing it to answer three questions. Specifically, I utilized the data Facebook released about its content moderation going back to 2017 within its most recent quarterly report. I tidied it and wrote a report that analyzes 1) recent patterns of content moderation in response to public pressure and 2) challenges its machine learning algorithms face for classifying correctly certain categories of context-depndent content. 
+In this report, I analyzed data released by Facebook about its content moderation going back to 2017 as part of its most recent [Transparency Report](https://transparency.fb.com/data/community-standards-enforcement/). I came to conclusions about recent changes in Facebook's content moderation, possibly responding to public pressure, and limitations faced by its machine learning algorithms for correctly classifying certain categories of content. From download to final commit, I followed imported and tidied the data, explored them through visualization, and finally wrote up the report. 
+
+### How to view the report: 
+
+You can view the report by following [this link]( https://github.com/zanderarnao/FB-Content-Moderation/blob/0eb7efc309982ce4326d5c7ee6096081c6e1266d/report_document.md) or clicking "report_document.md" below. You can also view the source code for the Markdown document by viewing "report_document.Rmd". 
+
+If for some reason the Markdown document does not render or you would like to replicate the steps I followed while creating the report, please follow the steps below. The needed data and figures should already be in the "data" and "report_document_files" folders within the repository. But if for some reason they do not work, the bekiw procedure will recreate them successfully. 
+
+To successfully render the a report locally,
+
+1. run "import_and_clean_data.R" to download and tidy the needed data set. 
+
+2. run "report_document.Rmd" to knit a markdown document. 
+
+The other two R scripts linked above do not need to be run upon startup. The function_code.R script simply creates two functions to assist with visualization and is called within the .Rmd. The exploratory_visualizations.R script is not intended for presentation. It documents my initial visual exploration of the data. Feel free to peruse if you are interested. 
 
 ### Links to relevant files and scripts: 
 
-* [exploratory_visualizations.R](https://github.com/zanderarnao/hw06/blob/2054195981b7b485bedab5d58869daa9e4b4300e/Scripts/exploratory_visualizations.R)
+* [report_document.md](https://github.com/zanderarnao/FB-Content-Moderation/blob/0eb7efc309982ce4326d5c7ee6096081c6e1266d/report_document.md)
 
-* [function_code.R](https://github.com/zanderarnao/hw06/blob/2054195981b7b485bedab5d58869daa9e4b4300e/Scripts/function_code.R)
+* [report_document.Rmd](https://github.com/zanderarnao/FB-Content-Moderation/blob/0eb7efc309982ce4326d5c7ee6096081c6e1266d/report_document.Rmd)
 
-* [import_and_clean_data.R](https://github.com/zanderarnao/hw06/blob/2054195981b7b485bedab5d58869daa9e4b4300e/Scripts/import_and_clean_data.R)
+* [import_and_clean_data.R](https://github.com/zanderarnao/FB-Content-Moderation/blob/0eb7efc309982ce4326d5c7ee6096081c6e1266d/Scripts/import_and_clean_data.R)
 
-* [report_document.Rmd](https://github.com/zanderarnao/hw06/blob/2054195981b7b485bedab5d58869daa9e4b4300e/report_document.Rmd)
+* [exploratory_visualizations.R](https://github.com/zanderarnao/FB-Content-Moderation/blob/0eb7efc309982ce4326d5c7ee6096081c6e1266d/Scripts/exploratory_visualizations.R)
 
-* [report_document.md](https://github.com/zanderarnao/hw06/blob/2054195981b7b485bedab5d58869daa9e4b4300e/report_document.md)
-
-
-### Steps for running scripts: 
-
-To successfully render this document, please
-
-1. run import_and_clean_data.R to download and tidy the needed data set. 
-
-2. run report_document.Rmd to knit a git hub markdown document. 
-
-The needed data and figures should already be in the "data" and "report_document_files" folders within the repo. But if they are not, the above should recreate them successfully. 
-
-The other two R scripts linked above do not need to be run upon startup. The function_code.R script simply creates two functions to assist with visualization and is called within the .Rmd. The exploratory_visualizations.R script is not intended for presentation. It document my initial visual exploration of the data without the prim and proper formatting demanded by this assignment. Please, do not grade this script, but feel free to peruse (because it shows effort! and that I know how to code quick and dirty...).
+* [function_code.R](https://github.com/zanderarnao/FB-Content-Moderation/blob/0eb7efc309982ce4326d5c7ee6096081c6e1266d/Scripts/function_code.R)
